@@ -20,7 +20,7 @@ app.add_middleware(CORSMiddleware, allow_origins=settings.cors_origins.split(","
 
 
 @app.get("/health")
-def health(): return {"status": "ok"}
+def health(): return {"status": "ok", "version": settings.app_version, "demo_mode": settings.demo_mode}
 
 
 @app.post("/api/v1/projects", response_model=ProjectOut, status_code=201)

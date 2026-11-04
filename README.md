@@ -24,7 +24,7 @@ Open `http://localhost:3000`. The API is at `http://localhost:8000`, with docs a
 
 Projects own an allowlist of domains. Every initial URL, crawl candidate, redirect target, and resolved address is revalidated. Loopback, private, link-local, multicast, unspecified, and cloud metadata targets are refused. The scanner uses strict page/time limits and only performs passive GET/HEAD-style observations. It never attempts exploitation.
 
-Set `DEMO_MODE=true` to use the seeded demo project. Add domains only that you control or are expressly authorized to test.
+`DEMO_MODE` defaults to `false`. The system starts with no projects: create a project only for domains you control or are expressly authorized to test. A local-only optional seed helper is available at `scripts/seed_demo.py`; it is not used by Docker Compose or production deployments.
 
 ## Development
 
