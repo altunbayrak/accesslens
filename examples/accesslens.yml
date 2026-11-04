@@ -1,0 +1,11 @@
+name: AccessLens PR audit
+on: [pull_request]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger approved AccessLens project scan
+        run: |
+          curl --fail -X POST "$ACCESSLENS_URL/api/v1/projects/$ACCESSLENS_PROJECT_ID/scans" \
+            -H "Authorization: Bearer ${{ secrets.ACCESSLENS_TOKEN }}" \
+            -H "Content-Type: application/json" -d '{"source":"github-pr"}'
